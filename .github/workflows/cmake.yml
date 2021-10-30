@@ -2,47 +2,43 @@ name: CI - Windows
 on: [pull_request, push]
 
 jobs:
-  ci:
-    name: Build
+  build:
+    name: 🚧Build
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        uses: msys2/setup-msys2@v2
-        with:
-          msystem: MINGW64
-          update: true
-          install: >-
-            mingw-w64-x86_64-qt5-static
-            mingw-w64-x86_64-cmake
-            mingw-w64-x86_64-ninja
-            mingw-w64-x86_64-gcc
-          
+    - name: Install dependencies
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: MINGW64
+        update: true
+        install: >-
+          mingw-w64-x86_64-qt5-static
+          mingw-w64-x86_64-cmake
+          mingw-w64-x86_64-ninja
+          mingw-w64-x86_64-gcc
 
-      - name: Build Program
-        shell: msys2 {0}
-        with:
-          msystem: MINGW64
-        run: |
-          cmake `
-            -B build `
-            -G "Ninja" `
-            -DCMAKE_PREFIX_PATH=/mingw64/qt5-static
-          cmake --build build
+    - name: Build Program
+      run: |
+        cmake `
+          -B build `
+          -G "Ninja" `
+          -DCMAKE_PREFIX_PATH=/mingw64/qt5-static
+        cmake --build build
 
-      - name: Prepare build artifacts
-        with:
-          msystem: MINGW64
-        shell: msys2 {0}
-        run: |
-          mkdir upload
-          cp build/quntitled.exe upload
+    - name: Prepare build artifacts
+      run: |
+        mkdir upload
+        cp build/quntitled.exe upload
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: built-artifacts
-          path: upload
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: built-artifacts
+        path: upload
