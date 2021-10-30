@@ -26,9 +26,9 @@ jobs:
 
     - name: Build Program
       run: |
-        cmake \
-          -B build \
-          -G "Ninja" \
+        cmake `
+          -B build `
+          -G "Ninja" `
           -DCMAKE_PREFIX_PATH=/mingw64/qt5-static
         cmake --build build
 
