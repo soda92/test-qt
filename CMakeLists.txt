@@ -46,6 +46,11 @@ endif()
 
 target_link_libraries(untitled PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
+
+if (WIN32)
+    set_property(TARGET untitled PROPERTY WIN32_EXECUTABLE true)
+endif (WIN32)
+
 set_target_properties(untitled PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
