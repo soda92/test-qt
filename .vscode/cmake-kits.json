@@ -1,0 +1,29 @@
+[
+    {
+        "name": "qt mingw",
+        "compilers": {
+            "C": "D:\\Qt\\Tools\\mingw810_64\\bin\\gcc.exe",
+            "CXX": "D:\\Qt\\Tools\\mingw810_64\\bin\\g++.exe"
+        },
+        "preferredGenerator": {
+            "name": "MinGW Makefiles"
+        },
+        "environmentVariables": {
+            "CMT_MINGW_PATH": "D:\\Qt\\Tools\\mingw810_64\\"
+        },
+        "cmakeSettings": {
+            "CMAKE_MAKE_PROGRAM": "D:\\Qt\\Tools\\Ninja\\ninja.exe"
+        }
+    },
+    {
+        "name": "vc17",
+        "toolchainFile": "D:/src/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "visualStudioArchitecture": "x86",
+        "visualStudio": "Visual Studio 17 2022",
+        "preferredGenerator": {
+            "name": "Visual Studio 17 2022",
+            "platform": "win32",
+            "toolset": "host=x86"
+        }
+    }
+]

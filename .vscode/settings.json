@@ -1,0 +1,7 @@
+{
+   "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+   "cmake.cmakePath": "C:\\Program Files\\CMake\\bin\\cmake.exe",
+   "cmake.configureSettings": {
+      "CMAKE_TOOLCHAIN_FILE": "D:/src/vcpkg/scripts/buildsystems/vcpkg.cmake"
+   }
+}
