@@ -15,12 +15,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->textEdit->append(
         QString::fromStdString(
             std::string(
-                "Qt version less than 6")));
+                QT_VERSION_STR)));
 #else
     ui->textEdit->append(
         QString::fromStdString(
             std::string(
-                "Qt version greater or equal 6")));
+                QT_VERSION_STR)));
 #endif
 }
 
