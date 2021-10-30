@@ -35,7 +35,7 @@ jobs:
     - name: Prepare build artifacts
       run: |
         mkdir upload
-        cp build/quntitled.exe upload
+        cp build/*.exe upload
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v2
