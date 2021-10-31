@@ -21,7 +21,7 @@ jobs:
         msystem: MINGW64
         update: true
         install: >
-          mingw-w64-x86_64-qt5
+          mingw-w64-x86_64-qt5-static
           mingw-w64-x86_64-cmake
           mingw-w64-x86_64-ninja
           mingw-w64-x86_64-gcc
@@ -34,13 +34,9 @@ jobs:
           -G "Ninja" \
           -DCMAKE_PREFIX_PATH=/mingw64/qt5-static
         cmake --build build
-        mkdir dist
-        cp build/untitled.exe dist
-        windeployqt dist/untitled.exe
-        python ldd-check.py dist/untitled.exe
 
     - name: '📤 upload package'
       uses: actions/upload-artifact@v2
       with:
         name: build-artifacts
-        path: dist
+        path: build/*.exe
