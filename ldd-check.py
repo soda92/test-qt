@@ -20,7 +20,7 @@ except subprocess.CalledProcessError as e:
 # %%
 path = Path(sys.argv[1]).resolve().parent
 print(path)
-MSYS_ROOT = Path('D:/msys64/')
+MSYS_ROOT = Path('/msys64/').resolve()
 outputlines = output.splitlines()
 for exe in outputlines:
     arr = exe.split()
