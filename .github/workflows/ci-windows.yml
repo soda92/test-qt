@@ -31,8 +31,7 @@ jobs:
         cmake \
           -B build \
           -G "Ninja" \
-          -DCMAKE_PREFIX_PATH=/mingw64/qt5-static \
-          -DSTATIC=1
+          -DCMAKE_PREFIX_PATH=/mingw64/qt5-static
         cmake --build build
 
     - name: '📤 upload package'
