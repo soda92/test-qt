@@ -36,7 +36,7 @@ jobs:
         cmake --build build
         mkdir build/dist
         cp build/untitled.exe build/dist
-        python ldd-check.py build/dist/untitled.exe
+        python ldd-check/ldd-check.py -cp build/dist/untitled.exe
 
     - name: '📤 upload package'
       uses: actions/upload-artifact@v2
