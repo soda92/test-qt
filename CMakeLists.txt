@@ -11,8 +11,6 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
-
 # find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(QT NAMES QT5 Qt6 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
@@ -71,5 +69,6 @@ if(STATIC)
         LINK_SEARCH_END_STATIC ON
     )
 
+    set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
     set(CMAKE_EXE_LINKER_FLAGS "-static -static-libgcc -static-libstdc++")
 endif()
