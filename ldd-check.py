@@ -31,6 +31,6 @@ for exe in outputlines:
         # breakpoint()
         p = Path.joinpath(MSYS_ROOT, lib[1:])
         print(p)
-        # shutil.copy(p, path)
+        shutil.copy(p, path)
 
 # %%
