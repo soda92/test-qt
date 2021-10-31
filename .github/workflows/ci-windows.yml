@@ -34,12 +34,12 @@ jobs:
           -G "Ninja" \
           -DCMAKE_PREFIX_PATH=/mingw64/qt5-static
         cmake --build build
-        mkdir dist
-        cp build/untitled.exe dist
-        python ldd-check.py dist/untitled.exe
+        mkdir build/dist
+        cp build/untitled.exe build/dist
+        python ldd-check.py build/dist/untitled.exe
 
     - name: '📤 upload package'
       uses: actions/upload-artifact@v2
       with:
         name: build-artifacts
-        path: dist
+        path: build/dist
