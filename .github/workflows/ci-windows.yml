@@ -32,8 +32,7 @@ jobs:
           -B build \
           -G "Ninja" \
           -DCMAKE_PREFIX_PATH=/mingw64/qt5-static \
-          -DLINK_SEARCH_START_STATIC=ON \
-          -DCMAKE_EXE_LINKER_FLAGS="-static -static-libgcc -static-libstdc++"
+          -DSTATIC
         cmake --build build
 
     - name: '📤 upload package'

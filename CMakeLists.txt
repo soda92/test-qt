@@ -64,9 +64,12 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(untitled)
 endif()
 
-# if(STATIC_QT)
-# set_target_properties(untitled PROPERTIES
-#     LINK_SEARCH_START_STATIC ON
-#     LINK_SEARCH_END_STATIC ON
-# )
-# endif()
+
+if(STATIC)
+    set_target_properties(untitled PROPERTIES
+        LINK_SEARCH_START_STATIC ON
+        LINK_SEARCH_END_STATIC ON
+    )
+
+    set(CMAKE_EXE_LINKER_FLAGS "-static -static-libgcc -static-libstdc++")
+endif()
