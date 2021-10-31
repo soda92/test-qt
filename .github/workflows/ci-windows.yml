@@ -8,6 +8,8 @@ jobs:
     defaults:
       run:
         shell: msys2 {0}
+    env:
+      prog_name: untitled.exe
 
     steps:
     - name: '🧰 Checkout'
@@ -36,8 +38,8 @@ jobs:
           -DCMAKE_PREFIX_PATH=/mingw64/qt5-static
         cmake --build build
         mkdir build/dist
-        cp build/untitled.exe build/dist
-        python ldd-check/ldd-check.py -cp build/dist/untitled.exe
+        cp build/${{env.prog_name}} build/dist
+        python ldd-check/ldd-check.py -cp build/dist/${{env.prog_name}}
 
     - name: '📤 upload package'
       uses: actions/upload-artifact@v2
