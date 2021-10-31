@@ -31,8 +31,8 @@ jobs:
         cmake \
           -B build \
           -G "Ninja" \
-          -DCMAKE_PREFIX_PATH=/mingw64/qt5-static
-          -DCMAKE_FIND_LIBRARY_SUFFIXES='.a'
+          -DCMAKE_PREFIX_PATH=/mingw64/qt5-static \
+          -DCMAKE_FIND_LIBRARY_SUFFIXES=".a"
         cmake --build build
 
     - name: '📤 upload package'
