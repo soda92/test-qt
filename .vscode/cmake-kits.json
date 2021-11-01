@@ -25,5 +25,16 @@
             "platform": "win32",
             "toolset": "host=x86"
         }
+    },
+    {
+        "name": "vc16",
+        "toolchainFile": "D:/src/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "visualStudioArchitecture": "x86",
+        "visualStudio": "Visual Studio 16 2019",
+        "preferredGenerator": {
+            "name": "Visual Studio 16 2019",
+            "platform": "win32",
+            "toolset": "host=x86"
+        }
     }
 ]
